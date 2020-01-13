@@ -104,7 +104,7 @@ public class calcActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
-                Intent openMainWindow = new Intent(calcActivity.this, MainActivity.class);
+                Intent openMainWindow = new Intent(view.getContext(), MainActivity.class);
                 startActivity(openMainWindow);
 
                 Toast toast = Toast.makeText(getApplicationContext(),"Back to Main Screen", Toast.LENGTH_SHORT);
@@ -165,7 +165,7 @@ public class calcActivity extends AppCompatActivity{
                 Toast toast = Toast.makeText(getApplicationContext(),"Saved", Toast.LENGTH_SHORT);
                 toast.show();
 
-                Intent openDiaryPage = new Intent(calcActivity.this, diaryActivity.class);
+                Intent openDiaryPage = new Intent(view.getContext(), diaryActivity.class);
                 startActivity(openDiaryPage);
             }
         });

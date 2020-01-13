@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView lv;
     private TextView avg;
+    private String[] myEntries;
+
 
     private  ArrayList<DiaryEntry> DiaryEnteries;
     ArrayAdapter<String> adapter;
@@ -62,29 +65,19 @@ public class MainActivity extends AppCompatActivity {
         PopulateLV();
 
 
-
-
-
-
-        lv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
-                Toast toast = Toast.makeText(getApplicationContext(), "Selected Item", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), myEntries[position], Toast.LENGTH_SHORT);
                 toast.show();
 
-                Intent open_diaryAct = new Intent(MainActivity.this, diaryActivity.class);
+                Intent open_diaryAct = new Intent(view.getContext(), diaryActivity.class);
                 // sends info to other intent to be recieved
                 open_diaryAct.putExtra("Item_Selected", position);
                 startActivity(open_diaryAct);
 
 
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                //
             }
         });
 
@@ -101,13 +94,13 @@ public class MainActivity extends AppCompatActivity {
 //            myEntries[i] = DiaryEnteries.get(i).toString();
 //        }*/
 
-        String[] myEntries = new String[3];
+        myEntries = new String[3];
         myEntries[0] = "2018/06/10";
         myEntries[1] = "2017/03/04";
         myEntries[2] = "2015/01/01";
 
 
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, calcActivity.DE_Dates);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, myEntries);
         lv.setAdapter(myAdapter);
 
     }

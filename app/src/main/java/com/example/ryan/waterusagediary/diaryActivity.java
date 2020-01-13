@@ -25,7 +25,7 @@ public class diaryActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
 
-        setUpEntry();
+        //setUpEntry();
 
         Button main = (Button) findViewById(R.id.btnMain);
         main.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +81,9 @@ public class diaryActivity extends AppCompatActivity{
         Intent diaryIntent = getIntent();
         // gives which day was selected
         String item_selected = diaryIntent.getStringExtra("Item_Selected");
-         LoadData();
+        Toast toast = Toast.makeText(getApplicationContext(), item_selected, Toast.LENGTH_SHORT);
+        toast.show();
+        LoadData();
 
         //array item to load into variables
         PopulateScreen(Integer.parseInt(item_selected));
@@ -107,10 +109,11 @@ public class diaryActivity extends AppCompatActivity{
         Type type = new TypeToken< ArrayList<DiaryEntry> >() {}.getType();
         DiaryEnteries = gson.fromJson(json, type);
 
-//        if (DiaryEnteries == null){
-//            Log.d("myPrint", "Null DiaryEntries");
-//            DiaryEnteries = new ArrayList<>();
-//        }
+
+        if (DiaryEnteries == null){
+            Log.d("myPrint", "Null DiaryEntries");
+            DiaryEnteries = new ArrayList<>();
+        }
 
 
     }
