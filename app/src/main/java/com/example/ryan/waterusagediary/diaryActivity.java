@@ -24,6 +24,7 @@ public class diaryActivity extends AppCompatActivity{
 
     private float avgWater;
     private float totalWater;
+    private int item_selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +69,15 @@ public class diaryActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
-                Toast toast = Toast.makeText(getApplicationContext(),"Loading Previous", Toast.LENGTH_SHORT);
-                toast.show();
+                if (item_selected == 0) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Cannot load Previous", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else if(item_selected <= DiaryEnteries.size()){
+                    PopulateScreen(--item_selected);
+                }
+
+
+
             }
         });
 
@@ -79,8 +87,12 @@ public class diaryActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
-                Toast toast = Toast.makeText(getApplicationContext(),"Loading Next", Toast.LENGTH_SHORT);
-                toast.show();
+                if (item_selected == DiaryEnteries.size()-1) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Cannot load Next", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    PopulateScreen(++item_selected);
+                }
             }
         });
 
@@ -89,7 +101,7 @@ public class diaryActivity extends AppCompatActivity{
     private void setUpEntry() {
         Intent diaryIntent = getIntent();
         // gives which day was selected
-        int item_selected = diaryIntent.getIntExtra("Item_Selected", 0);
+        item_selected = diaryIntent.getIntExtra("Item_Selected", 0);
 
         Toast toast = Toast.makeText(getApplicationContext(), String.valueOf(item_selected), Toast.LENGTH_SHORT);
         toast.show();

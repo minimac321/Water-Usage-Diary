@@ -88,10 +88,10 @@ public class calcActivity extends AppCompatActivity{
                 String Date = tDate.getText().toString();
 
                 TextView t1 = findViewById(R.id.edtAmount);
-                int shower = Integer.parseInt(t1.getText().toString());
+                int shower = Integer.parseInt(t1.getText().toString())*5;
 
                 TextView t2 = findViewById(R.id.edtAmount2);
-                int toilet = Integer.parseInt(t2.getText().toString());
+                int toilet = Integer.parseInt(t2.getText().toString())*9;
 
                 TextView t3 = findViewById(R.id.edtAmount3);
                 int hygiene = Integer.parseInt(t3.getText().toString());
@@ -100,16 +100,16 @@ public class calcActivity extends AppCompatActivity{
                 int laundry = Integer.parseInt(t4.getText().toString());
 
                 TextView t5 = findViewById(R.id.edtAmount5);
-                int dishes = Integer.parseInt(t5.getText().toString());
+                int dishes = Integer.parseInt(t5.getText().toString())*9;
 
                 TextView t6 = findViewById(R.id.edtAmount6);
                 int drinking = Integer.parseInt(t6.getText().toString());
 
                 TextView t7 = findViewById(R.id.edtAmount7);
-                int cooking = Integer.parseInt(t7.getText().toString());
+                int cooking = Integer.parseInt(t7.getText().toString())*2;
 
                 TextView t8 = findViewById(R.id.edtAmount8);
-                int cleaning = Integer.parseInt(t8.getText().toString());
+                int cleaning = Integer.parseInt(t8.getText().toString())*7;
 
                 TextView t9 = findViewById(R.id.edtAmount9);
                 int other = Integer.parseInt(t9.getText().toString());
@@ -122,7 +122,7 @@ public class calcActivity extends AppCompatActivity{
 
 
                 //DE_Dates.add("2018");
-                int iTotal = shower+toilet+hygiene+laundry+dishes+drinking+cooking+cleaning+other;
+                int iTotal = 5*shower+9*toilet+hygiene+laundry+9*dishes+drinking+cooking+cleaning+other;
                 Totals.add(String.valueOf(iTotal));
 
                 SaveData();
@@ -468,10 +468,10 @@ public class calcActivity extends AppCompatActivity{
         int iCurr = 0;
 
         TextView tv = (TextView) findViewById(R.id.edtAmount);
-        iCurr += Integer.parseInt(tv.getText().toString());
+        iCurr += Integer.parseInt(tv.getText().toString())*5;
 
         tv = (TextView) findViewById(R.id.edtAmount2);
-        iCurr += Integer.parseInt(tv.getText().toString());
+        iCurr += Integer.parseInt(tv.getText().toString())*9;
 
         tv = (TextView) findViewById(R.id.edtAmount3);
         iCurr += Integer.parseInt(tv.getText().toString());
@@ -480,16 +480,16 @@ public class calcActivity extends AppCompatActivity{
         iCurr += Integer.parseInt(tv.getText().toString());
 
         tv = (TextView) findViewById(R.id.edtAmount5);
-        iCurr += Integer.parseInt(tv.getText().toString());
+        iCurr += Integer.parseInt(tv.getText().toString())*9;
 
         tv = (TextView) findViewById(R.id.edtAmount6);
         iCurr += Integer.parseInt(tv.getText().toString());
 
         tv = (TextView) findViewById(R.id.edtAmount7);
-        iCurr += Integer.parseInt(tv.getText().toString());
+        iCurr += Integer.parseInt(tv.getText().toString())*2;
 
         tv = (TextView) findViewById(R.id.edtAmount8);
-        iCurr += Integer.parseInt(tv.getText().toString());
+        iCurr += Integer.parseInt(tv.getText().toString())*7;
 
         tv = (TextView) findViewById(R.id.edtAmount9);
         iCurr += Integer.parseInt(tv.getText().toString());

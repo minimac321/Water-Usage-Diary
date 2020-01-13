@@ -13,7 +13,7 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="55dp"
+        android:layout_height="80dp"
 
         >
 
@@ -25,8 +25,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center_vertical"
-            android:text="Dairy Entry"
+            android:text="Dairy Entry Data"
             android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/background_dark"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_anchorGravity="center" />
@@ -35,17 +37,25 @@
             android:id="@+id/lblDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:text="22/04/2017" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="5dp"
+            android:text="22/04/2017"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/lblRunningAvg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:text="TextView" />
+            android:layout_alignParentEnd="true"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
@@ -74,6 +84,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:text="Shower"
+                    android:textColor="@android:color/holo_blue_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -94,9 +105,10 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:text="Stop/start shower = 5 L" />
+                    android:layout_alignParentBottom="true"
+                    android:text="Stop/start shower = 5 L"
+                    android:textColor="@android:color/black" />
 
             </RelativeLayout>
 
@@ -113,6 +125,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:text="Toilet"
+                    android:textColor="@android:color/holo_blue_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -120,9 +133,10 @@
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:text="One normal Flush = 9 L" />
+                    android:layout_alignParentBottom="true"
+                    android:text="One normal Flush = 9 L"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/edtAmount2"
@@ -151,6 +165,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:text="Hygiene"
+                    android:textColor="@android:color/holo_blue_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -158,9 +173,10 @@
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:text="Enter amount used:" />
+                    android:layout_alignParentBottom="true"
+                    android:text="Enter amount used:"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/edtAmount3"
@@ -193,6 +209,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:text="Laundry"
+                    android:textColor="@android:color/holo_blue_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -200,9 +217,10 @@
                     android:id="@+id/textView9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:text="Enter amount used:" />
+                    android:layout_alignParentBottom="true"
+                    android:text="Enter amount used:"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/edtAmount4"
@@ -232,6 +250,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:text="Dishes"
+                    android:textColor="@android:color/holo_blue_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -239,9 +258,10 @@
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:text="Sink wash = 9 L" />
+                    android:layout_alignParentBottom="true"
+                    android:text="Sink wash = 9 L"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/edtAmount5"
@@ -271,6 +291,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:text="Drinking"
+                    android:textColor="@android:color/holo_blue_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -278,9 +299,10 @@
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:text="Litres drunk per day:" />
+                    android:layout_alignParentBottom="true"
+                    android:text="Litres drunk per day:"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/edtAmount6"
@@ -311,6 +333,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:text="Cooking"
+                    android:textColor="@android:color/holo_blue_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -318,9 +341,10 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:text="Washing Ingredients = 2 L" />
+                    android:layout_alignParentBottom="true"
+                    android:text="Washing Ingredients = 2 L"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/edtAmount7"
@@ -350,6 +374,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:text="Cleaning"
+                    android:textColor="@android:color/holo_blue_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -357,9 +382,10 @@
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
-                    android:text="House clean = 7 L" />
+                    android:layout_alignParentBottom="true"
+                    android:text="House clean = 7 L"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/edtAmount8"
@@ -389,6 +415,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:text="Other"
+                    android:textColor="@android:color/holo_blue_dark"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -396,9 +423,10 @@
                     android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:text="Enter the number of  Litres used:"
+                    android:textColor="@android:color/black"
                     android:textSize="12sp" />
 
                 <TextView
@@ -429,9 +457,10 @@
         android:layout_gravity="center"
         android:text="Running Total: 57 L"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:textStyle="bold"  />
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -445,14 +474,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Previous Entry" />
+            android:text="Previous Entry"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnNext"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Next Entry" />
+            android:text="Next Entry"
+            android:textSize="16sp" />
 
 
     </LinearLayout>
@@ -469,14 +500,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Main page" />
+            android:text="Main page"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnC"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Calculator" />
+            android:text="Calculator"
+            android:textSize="16sp" />
 
 
     </LinearLayout>

@@ -23,42 +23,55 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="Hello User" />
+            android:text="Hello User"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/lblAvg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:gravity="end"
             android:text="@string/average_consumption"
-            android:textAlignment="textEnd"
+            android:textAlignment="center"
             android:textColor="@color/colorPrimary"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btncalc"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_gravity="end"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="20dp"
             android:text="@string/btnCalc"
-            android:textSize="12sp"
-            android:visibility="visible" />
+            android:textSize="14sp" />
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List of Diary Entries"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
 
     <RelativeLayout
         android:id="@+id/rl_bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="3sp"
         android:layout_weight="2">
 
         <ListView
             android:id="@+id/main_lv"
+            style="@style/Widget.AppCompat.ListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@android:color/holo_blue_dark"
@@ -75,6 +88,10 @@
         android:layout_gravity="bottom"
         android:layout_weight="0"
         android:text="Running Total"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
 
 </LinearLayout>

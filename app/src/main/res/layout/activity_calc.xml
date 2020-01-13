@@ -13,18 +13,17 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="83dp"
-
-        >
+        android:layout_height="95dp">
 
 
         <TextView
             android:id="@+id/runningAVG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:text="47.4 Litres"
+            android:textAlignment="center"
             android:textColor="#1d1b1b"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -36,7 +35,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center_vertical"
-            android:text="Daily Usage Calculator"
+            android:text="Daily Usage \nCalculator"
             android:textColor="@android:color/background_dark"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -46,10 +45,14 @@
         <TextView
             android:id="@+id/date_display"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="37dp"
             android:layout_below="@id/heading"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="5dp"
             android:text="20/08/18"
             android:textColor="#1d1b1b"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -116,10 +119,11 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:text="Stop/start shower = 5 L"
-                    android:textColor="@android:color/holo_blue_dark" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
 
             </RelativeLayout>
 
@@ -144,10 +148,11 @@
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:text="One normal Flush = 9 L"
-                    android:textColor="@android:color/holo_blue_dark" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
 
                 <Button
                     android:id="@+id/btnMinus2"
@@ -201,10 +206,11 @@
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:text="Enter amount used:"
-                    android:textColor="@android:color/holo_blue_dark" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
 
                 <Button
                     android:id="@+id/btnMinus3"
@@ -261,10 +267,11 @@
                     android:id="@+id/textView9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:text="Enter amount used:"
-                    android:textColor="@android:color/holo_blue_dark" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
 
                 <Button
                     android:id="@+id/btnMinus4"
@@ -318,10 +325,11 @@
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:text="Sink wash = 9 L"
-                    android:textColor="@android:color/holo_blue_dark" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
 
                 <Button
                     android:id="@+id/btnMinus5"
@@ -375,10 +383,11 @@
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:text="Litres drunk per day:"
-                    android:textColor="@android:color/holo_blue_dark" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
 
                 <Button
                     android:id="@+id/btnMinus6"
@@ -433,10 +442,11 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:text="Washing Ingredients = 2 L"
-                    android:textColor="@android:color/holo_blue_dark" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
 
                 <Button
                     android:id="@+id/btnMinus7"
@@ -490,10 +500,11 @@
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:text="House clean = 7 L"
-                    android:textColor="@android:color/holo_blue_dark" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000000" />
 
                 <Button
                     android:id="@+id/btnMinus8"
@@ -547,10 +558,11 @@
                     android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
                     android:text="Enter the number of  Litres used:"
-                    android:textColor="@android:color/holo_blue_dark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000000"
                     android:textSize="12sp" />
 
                 <Button
@@ -597,7 +609,8 @@
         android:layout_gravity="center"
         android:text="Running Total: 0L"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -612,30 +625,37 @@
             android:id="@+id/exit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#1028bd"
+            android:background="#4560D6"
             android:elevation="0dp"
-            android:text="Exit \nWithout \nSaving" />
+            android:text="Exit \nWithout \nSaving"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/date_pick"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#1028bd"
-            android:padding="10dp"
+            android:background="#4560D6"
+            android:padding="20dp"
             android:paddingRight="10dp"
             android:text="Pick Date"
-            android:textColor="@android:color/background_dark" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="#1028bd"
+            android:background="#4560D6"
             android:text="Save"
-            android:textColor="@android:color/background_dark" />
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
 
     </LinearLayout>
