@@ -35,6 +35,9 @@ public class calcActivity extends AppCompatActivity{
     private  TextView tDate;
     private  ArrayList<DiaryEntry> DiaryEnteries;
 
+    private float avgWater;
+    private float totalWater;
+
 
     public static ArrayList<String> DE_Dates = new ArrayList<String>();
     public static ArrayList<String> Totals = new ArrayList<String>();
@@ -54,51 +57,12 @@ public class calcActivity extends AppCompatActivity{
 
         ////////Json file stuff
         LoadData();
-        ///////////////
 
-        ////////////// initial global variables
-
-
-
-        //////////////////coding plus and minus buttons
-
-        final Button P1 = findViewById(R.id.btnPlus);
-        P1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TextView edt = (TextView) findViewById(R.id.edtAmount);
-                int iCurr = Integer.parseInt(edt.getText().toString());
-                iCurr++;
-
-
-                edt.setText(String.valueOf(iCurr));
-                UpdatecalcCurrTotal();
-
-
-            }
-        });
-
-        final Button M1 = findViewById(R.id.btnMinus);
-        M1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TextView edt = findViewById(R.id.edtAmount);
-                int iCurr = Integer.parseInt(edt.getText().toString());
-                iCurr--;
-                if (iCurr<0){
-                    iCurr = 0;
-                }
-
-                edt.setText(String.valueOf(iCurr));
-                UpdatecalcCurrTotal();
-
-
-            }
-        });
+        setAverage();
 
 
 
-        ///////////////////>
+
 
 
         Button exit = (Button) findViewById(R.id.exit);
@@ -211,16 +175,328 @@ public class calcActivity extends AppCompatActivity{
         };
 
 
+
+        //////////////////coding plus and minus buttons
+
+        final Button P1 = findViewById(R.id.btnPlus);
+        P1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = (TextView) findViewById(R.id.edtAmount);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr++;
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button M1 = findViewById(R.id.btnMinus);
+        M1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = findViewById(R.id.edtAmount);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr--;
+                if (iCurr<0){
+                    iCurr = 0;
+                }
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button P2 = findViewById(R.id.btnPlus2);
+        P2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = (TextView) findViewById(R.id.edtAmount2);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr++;
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button M2 = findViewById(R.id.btnMinus2);
+        M2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = findViewById(R.id.edtAmount2);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr--;
+                if (iCurr<0){
+                    iCurr = 0;
+                }
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button P3 = findViewById(R.id.btnPlus3);
+        P3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = (TextView) findViewById(R.id.edtAmount3);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr++;
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button M3 = findViewById(R.id.btnMinus3);
+        M3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = findViewById(R.id.edtAmount3);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr--;
+                if (iCurr<0){
+                    iCurr = 0;
+                }
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button P4 = findViewById(R.id.btnPlus4);
+        P4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = (TextView) findViewById(R.id.edtAmount4);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr++;
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button M4 = findViewById(R.id.btnMinus4);
+        M4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = findViewById(R.id.edtAmount4);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr--;
+                if (iCurr<0){
+                    iCurr = 0;
+                }
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button P5 = findViewById(R.id.btnPlus5);
+        P5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = (TextView) findViewById(R.id.edtAmount5);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr++;
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button M5 = findViewById(R.id.btnMinus5);
+        M5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = findViewById(R.id.edtAmount5);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr--;
+                if (iCurr<0){
+                    iCurr = 0;
+                }
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button P6 = findViewById(R.id.btnPlus6);
+        P6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = (TextView) findViewById(R.id.edtAmount6);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr++;
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button M6 = findViewById(R.id.btnMinus6);
+        M6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = findViewById(R.id.edtAmount6);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr--;
+                if (iCurr<0){
+                    iCurr = 0;
+                }
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button P7 = findViewById(R.id.btnPlus7);
+        P7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = (TextView) findViewById(R.id.edtAmount7);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr++;
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button M7 = findViewById(R.id.btnMinus7);
+        M7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = findViewById(R.id.edtAmount7);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr--;
+                if (iCurr<0){
+                    iCurr = 0;
+                }
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button P8 = findViewById(R.id.btnPlus8);
+        P8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = (TextView) findViewById(R.id.edtAmount8);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr++;
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button M8 = findViewById(R.id.btnMinus8);
+        M8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = findViewById(R.id.edtAmount8);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr--;
+                if (iCurr<0){
+                    iCurr = 0;
+                }
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button P9 = findViewById(R.id.btnPlus9);
+        P9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = (TextView) findViewById(R.id.edtAmount9);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr++;
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+        final Button M9 = findViewById(R.id.btnMinus9);
+        M9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView edt = findViewById(R.id.edtAmount9);
+                int iCurr = Integer.parseInt(edt.getText().toString());
+                iCurr--;
+                if (iCurr<0){
+                    iCurr = 0;
+                }
+
+                edt.setText(String.valueOf(iCurr));
+                UpdatecalcCurrTotal();
+            }
+        });
+
+
+        ///////////////////>
+
+
+
+
+
     }
 
+    public void setAverage(){
+        avgWater = 0;
+        totalWater = 0;
+
+        for (int i =0; i<DiaryEnteries.size(); i++){
+            avgWater += DiaryEnteries.get(i).Total;
+        }
+        totalWater = avgWater;
+        avgWater = avgWater / DiaryEnteries.size();
+
+        TextView lblAvg = (TextView)findViewById(R.id.runningAVG);
+        String sAvg = String.format("%.2f", avgWater);
+
+        lblAvg.setText("Average Consumption\n" + sAvg + "L");
+    }
 
     public void UpdatecalcCurrTotal(){
-        TextView ed = (TextView) findViewById(R.id.edtAmount);
-        int iCurr = Integer.parseInt(ed.getText().toString());
+        int iCurr = 0;
+
+        TextView tv = (TextView) findViewById(R.id.edtAmount);
+        iCurr += Integer.parseInt(tv.getText().toString());
+
+        tv = (TextView) findViewById(R.id.edtAmount2);
+        iCurr += Integer.parseInt(tv.getText().toString());
+
+        tv = (TextView) findViewById(R.id.edtAmount3);
+        iCurr += Integer.parseInt(tv.getText().toString());
+
+        tv = (TextView) findViewById(R.id.edtAmount4);
+        iCurr += Integer.parseInt(tv.getText().toString());
+
+        tv = (TextView) findViewById(R.id.edtAmount5);
+        iCurr += Integer.parseInt(tv.getText().toString());
+
+        tv = (TextView) findViewById(R.id.edtAmount6);
+        iCurr += Integer.parseInt(tv.getText().toString());
+
+        tv = (TextView) findViewById(R.id.edtAmount7);
+        iCurr += Integer.parseInt(tv.getText().toString());
+
+        tv = (TextView) findViewById(R.id.edtAmount8);
+        iCurr += Integer.parseInt(tv.getText().toString());
+
+        tv = (TextView) findViewById(R.id.edtAmount9);
+        iCurr += Integer.parseInt(tv.getText().toString());
 
         TextView running = (TextView) findViewById(R.id.calcCurrTotal);
 
-        running.setText(String.valueOf(iCurr));
+        running.setText("Running Total: "+ String.valueOf(iCurr)+ "L");
 
     }
 

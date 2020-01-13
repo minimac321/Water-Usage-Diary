@@ -595,7 +595,7 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_gravity="center"
-        android:text="Running Total: 57 L"
+        android:text="Running Total: 0L"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"

@@ -25,8 +25,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ListView lv;
-    private TextView avg;
+    private TextView avgTV;
     private String[] myEntries;
+
+    private float avgWater;
+    private float totalWater;
 
 
     private  ArrayList<DiaryEntry> DiaryEnteries;
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         lv = (ListView) findViewById(R.id.main_lv);
-        avg = findViewById(R.id.lblAvg);
+
 
 
         Button nextWinButton = (Button) findViewById(R.id.btncalc);
@@ -64,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(), "Length of myEntries " + String.valueOf(myEntries.length), Toast.LENGTH_SHORT);
         toast.show();
 
+        setAverage();
+        setRunningTotal();
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -82,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     public void LoadData(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
@@ -94,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
             DiaryEnteries = new ArrayList<>();
         }
 
+    }
+
+    private void setRunningTotal() {
+        TextView lblTotal = (TextView)findViewById(R.id.lblRunning_total);
+        String sTotal = String.format("%.2f", totalWater);
+
+        lblTotal.setText("Total Water Consumption: " + sTotal + "L");
     }
 
     public void PopulateLV(){
@@ -129,9 +144,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    public void setAverage(){
-//        avg.setText("0");
-//    }
+    public void setAverage(){
+        avgWater = 0;
+        totalWater = 0;
+
+        for (int i =0; i<DiaryEnteries.size(); i++){
+            avgWater += DiaryEnteries.get(i).Total;
+        }
+        totalWater = avgWater;
+        avgWater = avgWater / DiaryEnteries.size();
+
+        TextView lblAvg = (TextView)findViewById(R.id.lblAvg);
+        String sAvg = String.format("%.2f", avgWater);
+
+        lblAvg.setText("Average Water Consumption\n per day: " + sAvg + "L");
+    }
 
     @Override
     protected void onPause(){

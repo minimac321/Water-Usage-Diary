@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.w3c.dom.Text;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -20,12 +22,17 @@ public class diaryActivity extends AppCompatActivity{
 
     public  ArrayList<DiaryEntry> DiaryEnteries;
 
+    private float avgWater;
+    private float totalWater;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
 
         setUpEntry();
+
+        setAverage();
 
         Button main = (Button) findViewById(R.id.btnMain);
         main.setOnClickListener(new View.OnClickListener() {
@@ -123,13 +130,34 @@ public class diaryActivity extends AppCompatActivity{
             date.setText(current.date);
 
             TextView a1 = (TextView) findViewById(R.id.edtAmount);
-            a1.setText(String.valueOf(current.shower));
+            a1.setText("Total: " + String.valueOf(current.shower) + " Litres");
 
             TextView a2 = (TextView) findViewById(R.id.edtAmount2);
-            a2.setText(String.valueOf(current.toilet));
+            a2.setText("Total: " + String.valueOf(current.toilet) + " Litres");
+
+            TextView a3 = (TextView) findViewById(R.id.edtAmount3);
+            a3.setText("Total: " + String.valueOf(current.hygiene) + " Litres");
+
+            TextView a4 = (TextView) findViewById(R.id.edtAmount4);
+            a4.setText("Total: " + String.valueOf(current.laundry) + " Litres");
+
+            TextView a5 = (TextView) findViewById(R.id.edtAmount5);
+            a5.setText("Total: " + String.valueOf(current.dishes) + " Litres");
+
+            TextView a6 = (TextView) findViewById(R.id.edtAmount6);
+            a6.setText("Total: " + String.valueOf(current.drinking) + " Litres");
+
+            TextView a7 = (TextView) findViewById(R.id.edtAmount7);
+            a7.setText("Total: " + String.valueOf(current.cooking) + " Litres");
+
+            TextView a8 = (TextView) findViewById(R.id.edtAmount8);
+            a8.setText("Total: " + String.valueOf(current.cleaning) + " Litres");
+
+            TextView a9 = (TextView) findViewById(R.id.edtAmount9);
+            a9.setText("Total: " + String.valueOf(current.other) + " Litres");
 
             TextView total = (TextView) findViewById(R.id.diaryCurrTotal);
-            total.setText("Running Total: "+ String.valueOf(current.Total)+"L");
+            total.setText("Total: "+ String.valueOf(current.Total)+" Litres");
 
         }
 
@@ -144,6 +172,25 @@ public class diaryActivity extends AppCompatActivity{
         editor.putString("task list", json);
         editor.apply();
     }
+
+    public void setAverage(){
+        avgWater = 0;
+        totalWater = 0;
+
+        for (int i =0; i<DiaryEnteries.size(); i++){
+            avgWater += DiaryEnteries.get(i).Total;
+        }
+        totalWater = avgWater;
+        avgWater = avgWater / DiaryEnteries.size();
+
+        TextView lblAvg = (TextView)findViewById(R.id.lblRunningAvg);
+        String sAvg = String.format("%.2f", avgWater);
+
+        lblAvg.setText("Average Consumption\n" + sAvg + "L");
+    }
+
+
+
 
     //@Override
     protected void onPause(){
