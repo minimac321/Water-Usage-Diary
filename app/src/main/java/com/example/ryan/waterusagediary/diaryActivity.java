@@ -25,12 +25,13 @@ public class diaryActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
 
-        //setUpEntry();
+        setUpEntry();
 
         Button main = (Button) findViewById(R.id.btnMain);
         main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SaveData();
 
                 Intent openMainWindow = new Intent(view.getContext(), MainActivity.class);
                 startActivity(openMainWindow);
@@ -44,6 +45,7 @@ public class diaryActivity extends AppCompatActivity{
         calc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SaveData();
 
                 Intent openCalc = new Intent(view.getContext(), calcActivity.class);
                 startActivity(openCalc);
@@ -80,25 +82,18 @@ public class diaryActivity extends AppCompatActivity{
     private void setUpEntry() {
         Intent diaryIntent = getIntent();
         // gives which day was selected
-        String item_selected = diaryIntent.getStringExtra("Item_Selected");
-        Toast toast = Toast.makeText(getApplicationContext(), item_selected, Toast.LENGTH_SHORT);
+        int item_selected = diaryIntent.getIntExtra("Item_Selected", 0);
+
+        Toast toast = Toast.makeText(getApplicationContext(), String.valueOf(item_selected), Toast.LENGTH_SHORT);
         toast.show();
+
         LoadData();
 
+        toast = Toast.makeText(getApplicationContext(), "Size of Diary Entry: "+ String.valueOf(DiaryEnteries.size()), Toast.LENGTH_SHORT);
+        toast.show();
+
         //array item to load into variables
-        PopulateScreen(Integer.parseInt(item_selected));
-
-    }
-
-    private void PopulateScreen(int iPos) {
-        TextView textv = (TextView) findViewById(R.id.lblDate);
-        if (DiaryEnteries!=null) {
-            DiaryEntry current = DiaryEnteries.get(0);
-            textv.setText(current.date);
-        }
-        textv.setText("None");
-
-
+        PopulateScreen(item_selected);
 
     }
 
@@ -111,11 +106,43 @@ public class diaryActivity extends AppCompatActivity{
 
 
         if (DiaryEnteries == null){
-            Log.d("myPrint", "Null DiaryEntries");
+            Toast toast = Toast.makeText(getApplicationContext(), "Diary Entries array is null", Toast.LENGTH_SHORT);
+            toast.show();
             DiaryEnteries = new ArrayList<>();
         }
 
 
+    }
+
+    private void PopulateScreen(int iPos) {
+
+        if (DiaryEnteries!=null) {
+            DiaryEntry current = DiaryEnteries.get(iPos);
+
+            TextView date = (TextView) findViewById(R.id.lblDate);
+            date.setText(current.date);
+
+            TextView a1 = (TextView) findViewById(R.id.edtAmount);
+            a1.setText(String.valueOf(current.shower));
+
+            TextView a2 = (TextView) findViewById(R.id.edtAmount2);
+            a2.setText(String.valueOf(current.toilet));
+
+            TextView total = (TextView) findViewById(R.id.diaryCurrTotal);
+            total.setText("Running Total: "+ String.valueOf(current.Total)+"L");
+
+        }
+
+
+    }
+
+    public void SaveData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(DiaryEnteries);
+        editor.putString("task list", json);
+        editor.apply();
     }
 
     //@Override

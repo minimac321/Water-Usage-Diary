@@ -20,7 +20,9 @@ import android.widget.Toast;
 
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -45,10 +47,10 @@ public class calcActivity extends AppCompatActivity{
 
         DateFormat dateF = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
-        final String sDate = dateF.format(date);
+        final String[] sDate = {dateF.format(date)};
 
         tDate = findViewById(R.id.date_display);
-        tDate.setText(sDate);
+        tDate.setText(sDate[0]);
 
         ////////Json file stuff
         LoadData();
@@ -119,6 +121,8 @@ public class calcActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
+                String Date = tDate.getText().toString();
+
                 TextView t1 = findViewById(R.id.edtAmount);
                 int shower = Integer.parseInt(t1.getText().toString());
 
@@ -149,8 +153,7 @@ public class calcActivity extends AppCompatActivity{
 
 
                 // assign variables to array and save to csv/.txt
-                DiaryEnteries = new ArrayList<>();
-                DiaryEntry tmp = new DiaryEntry(sDate,shower,toilet,hygiene,laundry,dishes,drinking,cooking,cleaning,other);
+                DiaryEntry tmp = new DiaryEntry(Date,shower,toilet,hygiene,laundry,dishes,drinking,cooking,cleaning,other);
                 DiaryEnteries.add(tmp);
 
 
@@ -162,10 +165,12 @@ public class calcActivity extends AppCompatActivity{
 
 
 
-                Toast toast = Toast.makeText(getApplicationContext(),"Saved", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(),"Saved at position: "+ String.valueOf(DiaryEnteries.size()-1), Toast.LENGTH_SHORT);
                 toast.show();
 
                 Intent openDiaryPage = new Intent(view.getContext(), diaryActivity.class);
+                openDiaryPage.putExtra("Item_Selected", DiaryEnteries.size()-1);
+
                 startActivity(openDiaryPage);
             }
         });
@@ -226,22 +231,20 @@ public class calcActivity extends AppCompatActivity{
         String json = gson.toJson(DiaryEnteries);
         editor.putString("task list", json);
         editor.apply();
-
     }
 
     public void LoadData(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        /*Gson gson = new Gson();
+        Gson gson = new Gson();
         String json = sharedPreferences.getString("task list", null);
         Type type = new TypeToken<ArrayList<DiaryEntry>>() {}.getType();
         DiaryEnteries = gson.fromJson(json, type);
-        */
+
         if (DiaryEnteries==null){
             DiaryEnteries = new ArrayList<>();
+            Toast toast = Toast.makeText(getApplicationContext(),"Diary Entries null", Toast.LENGTH_SHORT);
+            toast.show();
         }
-
-
-
     }
 
     @Override

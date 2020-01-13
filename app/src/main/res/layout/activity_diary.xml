@@ -128,7 +128,6 @@
                     android:id="@+id/edtAmount2"
                     android:layout_width="140dp"
                     android:layout_height="47dp"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
                     android:ems="10"
                     android:text="Total : 0 Litres"
@@ -422,6 +421,17 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <TextView
+        android:id="@+id/diaryCurrTotal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:text="Running Total: 57 L"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"  />
 
     <LinearLayout
         android:layout_width="match_parent"

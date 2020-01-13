@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.main_lv);
         avg = findViewById(R.id.lblAvg);
 
-        //Intent openSecondWindow;
-
-        //Intent open_DiaryScreen;
 
         Button nextWinButton = (Button) findViewById(R.id.btncalc);
         nextWinButton.setOnClickListener(new View.OnClickListener(){
@@ -64,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         LoadData();
         PopulateLV();
 
+        Toast toast = Toast.makeText(getApplicationContext(), "Length of myEntries " + String.valueOf(myEntries.length), Toast.LENGTH_SHORT);
+        toast.show();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -81,28 +80,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-    }
-
-    public void PopulateLV(){
-
-//        //String[] myEntries = new String[DiaryEnteries.size()];
-//        /*for (int i =0; i<DiaryEnteries.size(); i++){
-//            myEntries[i] = DiaryEnteries.get(i).toString();
-//        }*/
-
-        myEntries = new String[3];
-        myEntries[0] = "2018/06/10";
-        myEntries[1] = "2017/03/04";
-        myEntries[2] = "2015/01/01";
-
-
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, myEntries);
-        lv.setAdapter(myAdapter);
-
     }
 
     public void LoadData(){
@@ -111,15 +88,49 @@ public class MainActivity extends AppCompatActivity {
         String json = sharedPreferences.getString("task list", null);
         Type type = new TypeToken<ArrayList<DiaryEntry>>() {}.getType();
         DiaryEnteries = gson.fromJson(json, type);
+
+
         if (DiaryEnteries==null){
             DiaryEnteries = new ArrayList<>();
         }
 
+    }
+
+    public void PopulateLV(){
+        if (DiaryEnteries==null) {
+            DiaryEntry tmp = new DiaryEntry("06/10/2018", 1, 1, 0, 3, 0, 0, 0, 0, 1);
+            DiaryEnteries.add(tmp);
+            tmp = new DiaryEntry("03/11/2017", 2, 2, 0, 0, 2, 0, 0, 0, 2);
+            DiaryEnteries.add(tmp);
+            tmp = new DiaryEntry("28/01/2015", 3, 3, 0, 0, 1, 0, 0, 0, 3);
+            DiaryEnteries.add(tmp);
+        }
+
+
+        myEntries = new String[DiaryEnteries.size()];
+        for (int i =0; i<DiaryEnteries.size(); i++){
+            myEntries[i] = DiaryEnteries.get(i).date;
+        }
+
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, myEntries);
+        lv.setAdapter(myAdapter);
+
+        SaveData();
+
+    }
+
+    public void SaveData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(DiaryEnteries);
+        editor.putString("task list", json);
+        editor.apply();
 
     }
 
 //    public void setAverage(){
-//        //
+//        avg.setText("0");
 //    }
 
     @Override
