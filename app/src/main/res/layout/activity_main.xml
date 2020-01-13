@@ -13,7 +13,7 @@
         android:id="@+id/rl_top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_weight="1"
 
         >
 
@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="Hello User"
+            android:text="Hello Water \nWarrior!"
+            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@android:color/black"
             android:textSize="24sp" />
@@ -43,12 +44,13 @@
 
         <Button
             android:id="@+id/btncalc"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="692dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="22dp"
+            android:background="@android:color/holo_blue_dark"
             android:text="@string/btnCalc"
             android:textSize="14sp" />
 
@@ -67,15 +69,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="3sp"
-        android:layout_weight="2">
+        android:layout_weight="0.8">
 
         <ListView
             android:id="@+id/main_lv"
-            style="@style/Widget.AppCompat.ListView"
+            style="@android:style/Widget.DeviceDefault.Light.ListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@android:color/holo_blue_dark"
-            android:dividerHeight="2dp"
+            android:dividerHeight="3dp"
             android:scrollbars="vertical" />
 
 
