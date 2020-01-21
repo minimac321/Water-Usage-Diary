@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Main Page Resources-->
+    <string name="average_consumption">Average Water Consumption \nper day: 0L</string>
+    <string name="Welcome">Hallo Wasserkrieger!</string>
+    <string name="list_of_diary_entries">Liste der Tagebucheinträge</string>
+    <string name="running_total">Laufende Summe</string>
+
+    <!--    Diary Page Resources-->
+    <string name="dairy_entry_data">Dairy Entry Data</string>
+    <string name="running_total_diary">Running Total: 57 L</string>
+    <string name="date_display_diary">22/04/2017</string>
+    <string name="running_avg_diary">Durchschnittlicher Verbrauch:\n 13.5L</string>
+    <string name="previous_entry">Vorheriger Eintrag</string>
+    <string name="next_entry">Nächster Eintrag</string>
+    <string name="main_page">Hauptseite</string>
+    <string name="calculator">Calculator</string>
+
+
+    <!--    Calculator Resources-->
+    <string name="daily_usage_calculator">Daily Usage  Calculator</string>
+    <string name="running_avg_calc">Average Consumption:\n 13.5L</string>
+    <string name="pick_date">Datum auswählen</string>
+    <string name="exit_without_saving">Beenden ohne Speichern</string>
+    <string name="save">Speichern</string>
+
+
+
+    <!--    Multipurpose Resources-->
+    <string name="shower">Dusche</string>
+    <string name="toilet">Toilette</string>
+    <string name="hygiene">Hygiene</string>
+    <string name="laundry">Wäsche</string>
+    <string name="dishes">Geschirr</string>
+    <string name="drinking">Trinken</string>
+    <string name="cooking">Kochen</string>
+    <string name="cleaning">Reinigung</string>
+    <string name="other">Andere</string>
+
+    <string name="minus_symbol">-</string>
+    <string name="plus_symbol">+</string>
+    <string name="zero_amount">0</string>
+
+    <string name="shower_info">Stop/start Dusche = 5 L</string>
+    <string name="toilet_info">Eine normale Spülung = 9 L</string>
+    <string name="hygiene_info">erwendeten Betrag eingeben:</string>
+    <string name="laundry_info">erwendeten Betrag eingeben:</string>
+    <string name="dishes_info">Waschbecken waschen = 9 L</string>
+    <string name="drinking_info">Litres drunk per day:</string>
+    <string name="cooking_info">Washing Ingredients = 2 L</string>
+    <string name="cleaning_info">Haus sauber = 7 L</string>
+    <string name="other_info">Geben Sie die Nummer ein Litres used:</string>
+
+</resources>

@@ -52,6 +52,8 @@ public class calcActivity extends AppCompatActivity{
         Date date = new Date();
         final String[] sDate = {dateF.format(date)};
 
+
+
         tDate = findViewById(R.id.date_display);
         tDate.setText(sDate[0]);
 
@@ -59,9 +61,6 @@ public class calcActivity extends AppCompatActivity{
         LoadData();
 
         setAverage();
-
-
-
 
 
 

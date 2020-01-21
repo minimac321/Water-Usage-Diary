@@ -1,6 +1,56 @@
 <resources>
-    <string name="app_name">Water Usage Diary</string>
-    <string name="btnCalc">Calculator</string>
-    <string name="average_consumption">Average Water Consumption\n per day: 0L</string>
+<!--    Main Page Resources-->
+    <string name="app_name" translatable="false">Water Usage Diary</string>
+    <string name="btnCalc" translatable="false">Calculator</string>
+    <string name="average_consumption">Average Water Consumption \nper day: 0L</string>
+    <string name="Welcome">Hello Water \nWarrior!</string>
+    <string name="list_of_diary_entries">List of Diary Entries</string>
+    <string name="running_total">Running Total</string>
+
+<!--    Diary Page Resources-->
+    <string name="dairy_entry_data">Dairy Entry Data</string>
+    <string name="running_total_diary">Running Total: 57 L</string>
+    <string name="date_display_diary">22/04/2017</string>
+    <string name="running_avg_diary">Average Consumption:\n 13.5L</string>
+    <string name="previous_entry">Previous Entry</string>
+    <string name="next_entry">Next Entry</string>
+    <string name="main_page">Main page</string>
+    <string name="calculator">Calculator</string>
+
+
+    <!--    Calculator Resources-->
+    <string name="daily_usage_calculator">Daily Usage  Calculator</string>
+    <string name="date_display_calc" translatable="false">20/08/18</string>
+    <string name="running_avg_calc">Average Consumption:\n 13.5L</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="exit_without_saving">Exit  Without  Saving</string>
+    <string name="save">Save</string>
+
+
+
+<!--    Multipurpose Resources-->
+    <string name="shower">Shower</string>
+    <string name="toilet">Toilet</string>
+    <string name="hygiene">Hygiene</string>
+    <string name="laundry">Laundry</string>
+    <string name="dishes">Dishes</string>
+    <string name="drinking">Drinking</string>
+    <string name="cooking">Cooking</string>
+    <string name="cleaning">Cleaning</string>
+    <string name="other">Other</string>
+
+    <string name="minus_symbol">-</string>
+    <string name="plus_symbol">+</string>
+    <string name="zero_amount">0</string>
+
+    <string name="shower_info">Stop/start shower = 5 L</string>
+    <string name="toilet_info">One normal Flush = 9 L</string>
+    <string name="hygiene_info">Enter amount used:</string>
+    <string name="laundry_info">Enter amount used:</string>
+    <string name="dishes_info">Sink wash = 9 L</string>
+    <string name="drinking_info">Litres drunk per day:</string>
+    <string name="cooking_info">Washing Ingredients = 2 L</string>
+    <string name="cleaning_info">House clean = 7 L</string>
+    <string name="other_info">Enter the number of Litres used:</string>
 
 </resources>

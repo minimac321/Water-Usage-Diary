@@ -23,11 +23,14 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="Hello Water \nWarrior!"
+            android:text="@string/Welcome"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:gravity="start"
+            android:layout_toStartOf="@id/lblAvg"
+            />
 
         <TextView
             android:id="@+id/lblAvg"
@@ -40,7 +43,8 @@
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
 
         <Button
             android:id="@+id/btncalc"
@@ -60,7 +64,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="List of Diary Entries"
+        android:text="@string/list_of_diary_entries"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
@@ -89,7 +93,7 @@
         android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:layout_weight="0"
-        android:text="Running Total"
+        android:text="@string/running_total"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
