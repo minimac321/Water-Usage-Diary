@@ -1,14 +1,15 @@
 package com.example.ryan.waterusagediary;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,7 +20,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-
+import java.util.zip.Inflater;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -175,5 +176,31 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mymenu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Toast toast;
+        switch (item.getItemId()){
+            case R.id.item_language:
+                toast = Toast.makeText(getApplicationContext(), "Choose Langauge", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;// change language with radio box
+            case R.id.item_settings:
+                toast = Toast.makeText(getApplicationContext(), "Choose Settings", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            case R.id.item_about:
+                toast = Toast.makeText(getApplicationContext(), "Choose About", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+        }
+
+        return true;
+    }
 }
