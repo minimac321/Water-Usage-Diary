@@ -1,6 +1,10 @@
 package com.example.ryan.waterusagediary;
 
-public class DiaryEntry {
+import android.support.annotation.NonNull;
+
+import java.util.Comparator;
+
+public class DiaryEntry implements Comparable<DiaryEntry> {
     public String date;
     public float Total;
     public int shower;
@@ -34,5 +38,16 @@ public class DiaryEntry {
 
     public String toString(){
         return ("Date: "+date+"/nTotal water used in day: "+Total+" litres");
+    }
+
+    public String getDate(){
+        return this.date;
+    }
+
+
+    //To Sort Diary Entries but doesnt work right, entries with "08/10/20" vs "4/10/20"
+    @Override
+    public int compareTo(@NonNull DiaryEntry o) {
+        return this.date.compareTo(o.getDate());
     }
 }

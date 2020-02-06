@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.zip.Inflater;
 
 
@@ -122,11 +124,13 @@ public class MainActivity extends AppCompatActivity {
             DiaryEnteries.add(tmp);
         }
 
-
+        Collections.sort(DiaryEnteries);
         myEntries = new String[DiaryEnteries.size()];
         for (int i =0; i<DiaryEnteries.size(); i++){
             myEntries[i] = DiaryEnteries.get(i).date;
         }
+
+
 
         ArrayAdapter<String> myAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, myEntries);
         lv.setAdapter(myAdapter);
